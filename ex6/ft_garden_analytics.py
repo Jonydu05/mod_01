@@ -185,28 +185,15 @@ class Vegetable(Plant):
 
 
 class Seed(Flower):
-    class _SeedStats(Plant._Stats):
-        def __init__(self) -> None:
-            super().__init__()
-            self._bloom_calls = 0
-
-        def _increment_bloom(self) -> None:
-            self._bloom_calls += 1
-
-        def display_status(self) -> str:
-            base_status = super().display_status()
-            return f"{base_status}, {self._bloom_calls} bloom"
 
     def __init__(self, name: str, height: float, days: int,
                  growth_value: float, color: str, has_bloom: bool,
                  seeds: int):
         super().__init__(name, height, days, growth_value, color, has_bloom)
-        self.stats = self._SeedStats()
         self.seeds = seeds
 
     def bloom(self, seeds: int | None = None):
         super().bloom()
-        self.stats._increment_bloom()
         if seeds is not None:
             self.seeds = seeds
 

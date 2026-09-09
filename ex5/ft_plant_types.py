@@ -10,14 +10,6 @@ class Plant:
     def height(self) -> float:
         return self._height
 
-    @property
-    def days(self) -> int:
-        return self._days
-
-    @property
-    def growth_value(self) -> float:
-        return self._growth_value
-
     @height.setter
     def height(self, new_height: float):
         if new_height < 0:
@@ -28,8 +20,12 @@ class Plant:
             self._height = new_height
             print(f"Height updated: {self._height:.1f}cm")
 
+    @property
+    def days(self) -> int:
+        return self._days
+
     @days.setter
-    def days(self, new_days: float):
+    def days(self, new_days: int):
         if new_days < 0:
             print(f"{self.name.capitalize()}: "
                   "Error, age can't be negative")
@@ -37,6 +33,10 @@ class Plant:
         else:
             self._days = new_days
             print(f"Age updated: {self._days:.1f} days")
+
+    @property
+    def growth_value(self) -> float:
+        return self._growth_value
 
     @growth_value.setter
     def growth_value(self, new_growth: float):

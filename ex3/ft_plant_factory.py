@@ -30,4 +30,3 @@ if __name__ == "__main__":
         plant = Plant(names[i], heights[i], days[i], growth[i])
         print("Created: ", end="")
         plant.show()
-    plant = None

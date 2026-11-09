@@ -1,6 +1,6 @@
 class Plant:
     def __init__(self, name: str, height: float, days: int,
-                 growth_value: float):
+                 growth_value: float) -> None:
         self.name = name
         self._height = height
         self._days = days
@@ -11,7 +11,7 @@ class Plant:
         return self._height
 
     @height.setter
-    def height(self, new_height: float):
+    def height(self, new_height: float) -> None:
         if new_height < 0:
             print(f"{self.name.capitalize()}: "
                   "Error, height can't be negative")
@@ -25,7 +25,7 @@ class Plant:
         return self._days
 
     @days.setter
-    def days(self, new_days: int):
+    def days(self, new_days: int) -> None:
         if new_days < 0:
             print(f"{self.name.capitalize()}: Error, age can't be negative")
             print("Age update rejected")
@@ -38,7 +38,7 @@ class Plant:
         return self._growth_value
 
     @growth_value.setter
-    def growth_value(self, new_growth: float):
+    def growth_value(self, new_growth: float) -> None:
         if new_growth < 0:
             print(
                 f"{self.name.capitalize()}: "
@@ -48,16 +48,16 @@ class Plant:
         else:
             self._growth_value = new_growth
 
-    def show(self):
+    def show(self) -> None:
         print(
             f"{self.name.capitalize()}: "
             f"{self.height:.1f}cm, {self.days} days old"
             )
 
-    def grow(self, days_passed: int):
+    def grow(self, days_passed: int) -> None:
         self.height += self.growth_value * days_passed
 
-    def age(self, days_passed: int):
+    def age(self, days_passed: int) -> None:
         self.grow(days_passed)
         self.days += days_passed
 
